@@ -1,0 +1,62 @@
+<ion-view title="Animais" id="page12" cache-view = "false">
+  <ion-nav-buttons side="right" class="has-header">
+    <button ng-click="adicionar()" class="button button-positive icon-left ion-android-add-circle">Adicionar</button>
+  </ion-nav-buttons>
+
+  <ion-content padding="true" class="has-header">
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Procurar animal" ng-model="animalProcura">
+      </label>
+    </div>
+    <div class="alert alert-warning" ng-show="online == false && vazio == true">
+      <strong>Aviso!</strong> Você não possui nenhum animal cadastrado localmente.
+    </div>
+    <div class="alert alert-warning" ng-show="online == true && vazio == false && maisDeUm == false">
+      <strong>Você possui conexão com a internet!</strong> Sincronize os animais cadastrados localmente com o servidor.
+    </div>
+    <div class="alert alert-success" ng-show="sincronismoSucesso == true">
+      <strong>Operação realizada!</strong> Animal sincronizado com sucesso.
+    </div>
+    <div align="center" ng-show="online == true && maisDeUm == true">
+       <button  class="button icon-left ion-upload" style="color:white; background:#025aa5" 
+          ng-click="atualizarMaisDeUm()">Sincronizar animais</button>
+       <br/>
+       <div class="spacer" style="width: 300px; height: 19px;"></div>
+    </div>
+
+    <ion-refresher pulling-text="Puxe para atualizar" on-refresh="atualizarList()"></ion-refresher>
+    <ion-list id="animais-list9">
+      <div ng-if="online == true">
+        <ion-item ng-repeat = "animal in animais | filter:animalProcura" style = "text-align:left;">
+            <h2>{{animal.nomeNumero}}</h2>
+            <ion-option-button class="button-assertive icon-left ion-trash-a"
+                         ng-click="deletar(animal)">
+              Deletar
+            </ion-option-button>
+            <ion-option-button class="button-positive icon-left ion-edit"
+                         ng-click="atualizar(animal)">
+            Atualizar
+            </ion-option-button>
+        </ion-item>
+      </div>
+      <ion-item class = "item-icon-right" ng-repeat = "animalLocal in animaisLocais | filter:animalProcura" style = "text-align:left;">                  
+          <h2>{{animalLocal.nomeNumero}}</h2>
+          <ion-option-button class="button-calm icon-left ion-upload"
+                       ng-click="atualizarServidor(animalLocal)">
+            Sincronizar          
+          </ion-option-button>          
+          <ion-option-button class="button-assertive icon-left ion-trash-a"
+                       ng-click="deletarLocal(animalLocal)">
+            Deletar
+          </ion-option-button>
+          <ion-option-button class="button-positive icon-left ion-edit"
+                       ng-click="atualizar(animalLocal)">
+          Atualizar
+          </ion-option-button>
+          <i class="icon ion-upload" style="float:right; margin-top:0"></i>         
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

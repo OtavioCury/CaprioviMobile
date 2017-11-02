@@ -1,0 +1,42 @@
+<ion-view title="Cadastro Movimentação" id="page21" cache-view = "false">
+  <ion-content padding="true" class="has-header">
+    <h3 id="cadastroMovimentaO-heading5" style="color:#000000;text-align:center;">Informações</h3>
+    <form id="cadastroMovimentaO-form8" class="list" ng-submit = "cadastrar(movimentacao)" name = "cadastroMovimentacaoForm">
+      <label class="item item-select" id="cadastroMovimentaO-select11">
+        <span class="input-label">Motivo *</span>
+        <select ng-required = "true" ng-model = "movimentacao.motivoSaida">
+          <option>Venda</option>
+          <option>Morte</option>
+          <option>Roubo</option>
+          <option>Alimentação</option>
+          <option>Emprestimo</option>
+          <option>Outros</option>
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 20px;"></div>
+      <div ng-if="online == true">
+        <label class="item item-select" id="cadastroMovimentaO-select10">
+          <span class="input-label">Animal *</span>
+          <select ng-required = "true" ng-options = "animal.nomeNumero for animal in animais" ng-model = "movimentacao.animal">         
+          </select>
+        </label>
+        <div class="spacer" style="width: 300px; height: 20px;"></div>
+      </div>
+      <label class="item item-input" id="cadastroMovimentaO-input25">
+        <input type="number" placeholder="Peso *" ng-required = "true" ng-model = "movimentacao.peso">
+      </label>
+      <div class="spacer" style="width: 300px; height: 20px;"></div>
+      <label class="item item-input" id="cadastroMovimentaO-input26">
+        <span class="input-label">Data da movimentação*</span>
+        <input type="date" ng-required = "true" ng-model = "movimentacao.data">
+      </label>
+      <div class="spacer" style="width: 300px; height: 20px;"></div>
+      <label class="item item-input" id="cadastroMovimentaO-textarea3">
+        <span class="input-label"></span><textarea placeholder="Observações" ng-model = "movimentacao.observacao"></textarea></label>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <button id="cadastroMovimentacao-button5" class="button button-positive icon-left button-block button-block ion-checkmark-circled" type = "submit" ng-disabled = "cadastroMovimentacaoForm.$invalid">Salvar</button>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+    </form>    
+    <button id="cadastroMovimentacao-button6" class="button button-assertive icon-left button-block button-block ion-close-circled" ng-click="cancelar()">Cancelar</button>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,26 @@
+<ion-view title="Relatório intervalo de geração" cache-view = "false">
+	<ion-content padding="true" class="has-header">
+		<div ng-if="vazio == false">
+			<div class="item item-body">
+				<div class="show-list-numbers-and-dots" align = "center">
+			        <p style="margin-top:0px;color:#000000;font-weight:bold">Intervalos de gerações
+			        </p>
+		     	</div>
+		     	<br/>
+				
+					<div class="item item-body">
+				      	Intervalo de gerações - Machos = {{mediaMachos}} <br/><br/>
+				      	Intervalo de gerações - Fêmeas = {{mediaFemeas}} <br/><br/>
+				      	Média de intervalo de gerações do rebanho = {{mediaRebanho}}
+			      		<div class="spacer" style="width: 300px; height: 15px;"></div>			
+			  	  	</div>	    				
+			</div>
+		</div>
+		<br/>
+		<div class="alert alert-warning" ng-show="vazio == true">
+	      <strong>Aviso!</strong> Você não cadastrou as informações necessárias para a geração desse relatório.
+	    </div>
+	    <br/>
+		<button id="cadastroAnimal-button6" class="button button-assertive icon-left button-block button-block ion-android-arrow-back" ng-click="voltar()">Voltar</button>
+	</ion-content>
+</ion-view>

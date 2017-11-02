@@ -1,0 +1,25 @@
+<ion-view title="Cadastro Doença" cache-view = "false">
+  <ion-content padding="true" class="has-header">
+    <h3 id="cadastroDoenca-heading8" style="color:#000000;text-align:center;">Informações</h3>
+    <form id="cadastroDoenca-form11" class="list" name = "cadastroDoencaForm" ng-submit = "cadastrar(doenca)">
+      <label class="item item-input" id="cadastroDoenca-input14">
+        <input type="text" placeholder="Nome *" ng-model = "doenca.nome" ng-required="true">
+      </label>
+      <div class="spacer" style="width: 300px; height: 20px;"></div>
+      <label class="item item-input" id="cadastroMedicamento-textarea4">
+        <span class="input-label"></span><textarea placeholder="Causa *" ng-model="doenca.causa" ng-required="true"></textarea></label>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <label class="item item-input" id="cadastroMedicamento-textarea5">
+        <span class="input-label"></span><textarea placeholder="Profilaxia *" ng-model="doenca.profilaxia" ng-required="true"></textarea></label>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <label class="item item-input" id="cadastroMedicamento-textarea6">
+        <span class="input-label"></span><textarea placeholder="Sintomas *" ng-model="doenca.sintomas" ng-required="true"></textarea></label>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <label class="item item-input" id="cadastroMedicamento-textarea7">
+        <span class="input-label"></span><textarea placeholder="Tratamento *" ng-model="doenca.tratamento" ng-required="true"></textarea></label>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <button id="cadastroDoenca-button6" class="button icon-left button-positive  button-block ion-checkmark-circled" type = "submit" ng-disabled = "cadastroDoencaForm.$invalid">Salvar</button>
+    </form>
+    <button id="cadastroDoenca-button7" class="button icon-left button-assertive  button-block ion-close-circled" ng-click="cancelar()">Cancelar</button>
+  </ion-content>
+</ion-view>

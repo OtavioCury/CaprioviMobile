@@ -1,0 +1,55 @@
+<ion-view title="Doenças" cache-view = "false">
+	<ion-nav-buttons side="right" class="has-header">
+    	<button ng-click="adicionar()" class="button button-positive icon-left ion-android-add-circle">Adicionar</button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Procurar doença" ng-model="doencaProcura">
+      </label>
+    </div>
+    <div class="alert alert-warning" ng-show="online == false && vazio == true">
+      <strong>Aviso!</strong> Você não possui nenhuma doença cadastrada localmente.
+    </div>
+    <div class="alert alert-warning" ng-show="online == true && vazio == false">
+      <strong>Você possui conexão com a internet!</strong> Sincronize as doenças cadastradas localmente com o servidor.
+    </div>
+    <div class="alert alert-success" ng-show="sincronismoSucesso == true">
+      <strong>Operação realizada!</strong> Doença sincronizada com sucesso.
+    </div>
+  	<ion-refresher pulling-text="Puxe para atualizar" on-refresh="atualizarList()"></ion-refresher>
+
+    <ion-list id="doencas-list8">
+      <div ng-if="online == true">
+        <ion-item ng-repeat = "doenca in doencas|filter:doencaProcura" style = "text-align:left;">
+            <h2>{{doenca.nome}}</h2>
+            <ion-option-button class="button-assertive icon-left ion-trash-a"
+                         ng-click="deletar(doenca)">
+              Deletar
+            </ion-option-button>
+            <ion-option-button class="button-positive icon-left ion-edit"
+                         ng-click="atualizar(doenca)">
+            Atualizar
+            </ion-option-button>
+        </ion-item>
+      </div>
+      <ion-item class = "item-icon-right" ng-repeat = "doencaLocal in doencasLocais|filter:doencaProcura" style = "text-align:left;">                   
+          <h2>{{doencaLocal.nome}}</h2>
+          <ion-option-button class="button-calm icon-left ion-upload"
+                       ng-click="atualizarServidor(doencaLocal)">   
+              Sincronizar       
+          </ion-option-button>          
+          <ion-option-button class="button-assertive icon-left ion-trash-a"
+                       ng-click="deletarLocal(doencaLocal)">
+            Deletar
+          </ion-option-button>
+          <ion-option-button class="button-positive icon-left ion-edit"
+                       ng-click="atualizar(doencaLocal)">
+          Atualizar
+          </ion-option-button>
+          <i class="icon ion-upload" style="float:right; margin-top:0"></i>       
+      </ion-item>    
+    </ion-list>
+  </ion-content>
+</ion-view>

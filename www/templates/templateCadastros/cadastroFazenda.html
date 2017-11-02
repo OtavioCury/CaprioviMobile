@@ -1,0 +1,28 @@
+<ion-view title="Cadastro fazenda" cache-view = "false">
+  <ion-content padding="true" class="has-header">
+    <h3 id="cadastroFazenda-heading3" style="color:#000000;text-align:center;">Informações</h3>
+    <form id="cadastroFazenda" class="list" ng-submit = "cadastrar(fazenda)" name = "cadastroFazendaForm">      
+      <label class="item item-input" id="cadastroFazenda-input19">
+        <input type="text" placeholder="Nome *" ng-model = "fazenda.nome" ng-required = "true">
+      </label>            
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <label class="item item-select" id="cadastroRebanho-select6">
+        <span class="input-label">Escolha o estado *</span>
+        <select ng-model = "fazenda.estado" ng-options = "estado for estado in estados" ng-required = "true">              </select>
+      </label>                             
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <label class="item item-input">
+        <input type="text" placeholder="Municipio *" ng-model = "fazenda.municipio" ng-required = "true">
+      </label>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <label class="item item-input">
+        <input type="tel" placeholder="Telefone *" ng-model = "fazenda.telefone" ng-required = "true">
+      </label>    
+      <br/>      
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <button id="cadastroFazenda-button6" class="button icon-left button-positive  button-block ion-checkmark-circled" type = "submit" ng-disabled = "cadastroFazendaForm.$invalid">Salvar</button>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>    
+    </form>    
+    <button id="cadastroFazenda-button6" class="button icon-left button-assertive  button-block ion-close-circled" ng-click="cancelar()">Cancelar</button>
+  </ion-content>
+</ion-view>

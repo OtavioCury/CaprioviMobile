@@ -1,0 +1,93 @@
+<ion-view title="Movimentações" cache-view = "false">
+  <ion-nav-buttons side="right" class="has-header">
+    <button ng-click="adicionar()" class="button button-positive icon-left ion-android-add-circle">Adicionar</button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Procurar movimentação" ng-model="movimentacaoProcura">
+      </label>
+    </div>
+
+    <div class="alert alert-warning" ng-show="online == false && vazio == true">
+      <strong>Aviso!</strong> Você não possui nenhuma movimentação animal cadastrada localmente.
+    </div>
+    <div class="alert alert-warning" ng-show="online == true && vazio == false">
+      <strong>Você possui conexão com a internet!</strong> Sincronize as movimentações cadastrados localmente com o servidor.
+    </div>
+    <div class="alert alert-success" ng-show="sincronismoSucesso == true">
+      <strong>Operação realizada!</strong> Movimentação sincronizada com sucesso.
+    </div>
+
+    <ion-refresher pulling-text="Puxe para atualizar" on-refresh="atualizarList()"></ion-refresher>
+    <ion-list>
+      <div ng-if="online == true">
+         <ion-item ng-repeat = "movimentacao in movimentacoes | filter:movimentacaoProcura" style = "text-align:left;">
+            <h2>Animal: {{movimentacao.animal.nomeNumero}}</h2>
+            <div ng-if="movimentacao.motivoSaida == 'MOTIVO_VENDA'">
+              <h2>Motivo: Venda</h2>
+            </div>
+            <div ng-if="movimentacao.motivoSaida == 'MOTIVO_MORTE'">
+              <h2>Motivo: Morte</h2>
+            </div>
+            <div ng-if="movimentacao.motivoSaida == 'MOTIVO_ROUBO'">
+              <h2>Motivo: Roubo</h2>
+            </div>
+            <div ng-if="movimentacao.motivoSaida == 'MOTIVO_ALIMENTACAO'">
+              <h2>Motivo: Alimentação</h2>
+            </div>
+            <div ng-if="movimentacao.motivoSaida == 'MOTIVO_EMPRESTIMO'">
+              <h2>Motivo: Emprestimo</h2>
+            </div>
+            <div ng-if="movimentacao.motivoSaida == 'MOTIVO_OUTROS'">
+              <h2>Motivo: Outros</h2>
+            </div>          
+            <ion-option-button class="button-assertive icon-left ion-trash-a"
+                         ng-click="deletar(movimentacao)">
+              Deletar
+            </ion-option-button>
+            <ion-option-button class="button-positive icon-left ion-edit"
+                         ng-click="atualizar(movimentacao)">
+            Atualizar
+            </ion-option-button>
+        </ion-item>
+      </div>
+      <ion-item class = "item-icon-right" ng-repeat = "movimentacaoLocal in movimentacoesLocal | filter:movimentacaoProcura" style = "text-align:left;">
+          <h2>Peso: {{movimentacaoLocal.peso}}</h2>
+          <div ng-if="movimentacaoLocal.motivoSaida == '1'">
+            <h2>Motivo: Venda</h2>
+          </div>
+          <div ng-if="movimentacaoLocal.motivoSaida == '2'">
+            <h2>Motivo: Morte</h2>
+          </div>
+          <div ng-if="movimentacaoLocal.motivoSaida == '3'">
+            <h2>Motivo: Roubo</h2>
+          </div>
+          <div ng-if="movimentacaoLocal.motivoSaida == '4'">
+            <h2>Motivo: Alimentação</h2>
+          </div>
+          <div ng-if="movimentacaoLocal.motivoSaida == '5'">
+            <h2>Motivo: Emprestimo</h2>
+          </div>
+          <div ng-if="movimentacaoLocal.motivoSaida == '6'">
+            <h2>Motivo: Outros</h2>
+          </div>
+          <ion-option-button class="button-calm icon-left ion-upload"
+                       ng-click="atualizarServidor(movimentacaoLocal)">   
+              Sincronizar       
+          </ion-option-button>
+          <ion-option-button class="button-assertive icon-left ion-trash-a"
+                       ng-click="deletarLocal(movimentacaoLocal)">
+            Deletar
+          </ion-option-button>
+          <ion-option-button class="button-positive icon-left ion-edit"
+                       ng-click="atualizar(movimentacaoLocal)">
+          Atualizar
+          </ion-option-button>
+          <i class="icon ion-upload" style="float:right; margin-top:0"></i> 
+      </ion-item> 
+    </ion-list>
+  </ion-content>
+</ion-view>

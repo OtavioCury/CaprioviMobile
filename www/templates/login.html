@@ -1,0 +1,29 @@
+<ion-view title="Login" id="page5" style="background-color:#4D94FF;" hide-nav-bar="true" cache-view="false">
+  <ion-content padding="true">
+    <div class="spacer" style="width: 300px; height: 19px;"></div>    
+
+    <form id="login-form1" class="list" name = "loginForm" ng-submit="login(login)">
+      <div>
+        <img src="img/bnWp1wVTQC3KV10ztAJ6_logo.png" style="display: block; width: 70%; height: auto; margin-left: auto; margin-right: auto;">
+      </div>
+      <h1 id="login-heading1" style="color:#FFFFFF;font-weight:600;text-align:center;">Capriovi</h1>
+      <div class="spacer" style="width: 300px; height: 24px;"></div>
+      <label class="item item-input" id="login-input9">
+        <input type="text" placeholder="Usuário" ng-model="login.nome">
+      </label>
+      <div class="spacer" style="width: 300px; height: 9px;"></div>
+      <label class="item item-input" id="login-input10">
+        <input type="password" placeholder="Senha" ng-model="login.senha">
+      </label>      
+      <div class="spacer" style="width: 300px; height: 9px;"></div>      
+      <button id="login-button4" class="button button-dark button-block" type = "submit">Entrar</button>
+      <div class="spacer" style="width: 300px; height: 9px;"></div>   
+    </form>
+    <div align="center">
+        <button class="button" style="background-color:#4D94FF; color:white"
+          ng-click="site()">
+          Não tenho conta
+        </button>
+      </div>
+  </ion-content>  
+</ion-view>

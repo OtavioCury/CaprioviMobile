@@ -1,0 +1,28 @@
+<ion-view title="Relatório de previsão de partos" cache-view = "false">
+	<ion-content padding="true" class="has-header">
+		<div ng-show="vazio == false">	
+			<div class="item item-body">
+				<div class="show-list-numbers-and-dots" align = "center">
+		        <p style="margin-top:0px;color:#000000;">Previsões de partos
+		        </p>
+		     	</div>
+		      	<div class="spacer" style="width: 300px; height: 15px;"></div>
+				<ion-list>
+	      			<ion-item ng-repeat="manejo in relPrevisaoPartos">	
+	      				<h2>Rebanho: {{manejo.rebanho.nome}}</h2>
+	      				<h2>Matriz: {{manejo.matriz.nomeNumero}}</h2>
+	      				<h2>Previsão de parto: {{manejo.previsaoParto}}</h2>
+	      			</ion-item>
+	      			
+	  	  		</ion-list>			
+	  	  	</div>	    
+		 </div>
+		<br/>
+		<div class="alert alert-warning" ng-show="vazio == true">
+	      <strong>Aviso!</strong> Você não cadastrou as informações necessárias para a geração desse relatório.
+	    </div>
+	    <br/>    
+
+		<button id="cadastroAnimal-button6" class="button button-assertive icon-left button-block button-block ion-android-arrow-back" ng-click="voltar()">Voltar</button>		
+	</ion-content>
+</ion-view>

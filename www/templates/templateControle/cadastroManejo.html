@@ -1,0 +1,67 @@
+<ion-view title="Cadastro Manejo" id="page20" cache-view = "false">
+  <ion-content padding="true" class="has-header">
+    <h3 id="cadastroManejo-heading4" style="color:#000000;text-align:center;">Informações</h3>
+    <form id="cadastroManejo-form6" class="list" ng-submit = "cadastrar(manejo)" name = "cadastroManejoForm">
+      <label class="item item-input" id="cadastroManejo-input20">
+        <span class="input-label">Data da cobertura *</span>
+        <input type="date" ng-required = "true" ng-model = "manejo.dataDaCobertura">
+      </label>
+      <div class="spacer" style="width: 300px; height: 19px;"></div>
+      <div ng-if = "online == true">
+        <label class="item item-select" id="cadastroManejo-select6">
+          <span class="input-label">Rebanho *</span>
+          <select ng-required = "true" ng-options = "rebanho.nome for rebanho in rebanhos" ng-model = "manejo.rebanho">         
+          </select>
+        </label>
+      </div>
+      <div ng-if = "online == true">
+        <div class="spacer" style="width: 300px; height: 19px;"></div>
+        <label class="item item-select" id="cadastroManejo-select7">
+          <span class="input-label">Matriz *</span>
+          <select ng-required = "true" ng-options = "matriz.nomeNumero for matriz in matrizes" ng-model = "manejo.matriz">          
+          </select>
+        </label>
+        <div class="spacer" style="width: 300px; height: 19px;"></div>
+      </div>
+      <div ng-if = "online == true">
+        <label class="item item-select" id="cadastroManejo-select8">
+          <span class="input-label">Reprodutor *</span>
+          <select ng-required = "true" ng-options = "reprodutor.nomeNumero for reprodutor in reprodutores" ng-model = "manejo.reprodutor">          
+          </select>
+        </label>
+        <div class="spacer" style="width: 300px; height: 19px;"></div>
+      </div>
+      <label class="item item-input" id="cadastroManejo-input21">
+        <input type="number" placeholder="Peso matriz *" ng-required = "true" ng-model = "manejo.pesoMatriz">
+      </label>
+      <div class="spacer" style="width: 300px; height: 19px;"></div>
+      <label class="item item-input" id="cadastroManejo-input22">
+        <input type="number" placeholder="Escore corporal da matriz *" ng-required = "true"  name ="escore"
+           ng-pattern="/^[1-5]+(\.[1-5]{1,2})?$/" ng-model = "manejo.scoreCorporalmatriz">
+      </label>
+      <div ng-show="cadastroManejoForm.escore.$valid == false && cadastroManejoForm.escore.$dirty" class = "alert alert-danger">
+        O escore corporal deve ser um número entre 1 e 5 de no máximo duas casas decimais. Ex: 1, 1.5, 1.65.. 
+      </div>
+      <div class="spacer" style="width: 300px; height: 19px;"></div>
+      <label class="item item-select" id="cadastroManejo-select9">
+        <span class="input-label">Parição *</span>
+        <select ng-required = "true" ng-model = "manejo.paricao">
+          <option>Sim</option>
+          <option>Não</option>
+          <option>Em andamento</option>
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 19px;"></div>
+      <label class="item item-input">
+        <input type="number" placeholder="Perímetro escrotal do reprodutor" ng-model = "manejo.perimetroEscrotalReprodutor">
+      </label>
+      <div class="spacer" style="width: 300px; height: 19px;"></div>
+      <label class="item item-input" id="cadastroManejo-textarea2">
+        <span class="input-label"></span><textarea placeholder="Observações" ng-model = "manejo.observacao"></textarea></label>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <button id="cadastroManejo-button5" class="button button-positive icon-left button-block button-block ion-checkmark-circled" type = "submit" ng-disabled = "cadastroManejoForm.$invalid">Salvar</button>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+    </form>
+    <button id="cadastroManejo-button6" class="button button-assertive icon-left button-block button-block ion-close-circled" ng-click="cancelar()">Cancelar</button>
+  </ion-content>
+</ion-view>

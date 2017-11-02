@@ -1,0 +1,28 @@
+<ion-view title="Cadastro Raça" id="page28" cache-view = "false">
+  <ion-content padding="true" class="has-header">
+    <h3 id="cadastroRaA-heading9" style="color:#000000;text-align:center;">Informações</h3>
+    <form id="cadastroRaA-form12" class="list" name = "cadastroRacaForm" ng-submit = "cadastrar(raca)">
+      <label class="item item-input" id="cadastroRaA-input18">
+        <input type="text" placeholder="Nome *" ng-model = "raca.nome" ng-required = "true">
+      </label>
+      <div class="spacer" style="width: 300px; height: 21px;"></div>
+      <label class="item item-input" id="cadastroRaA-textarea5">
+        <span class="input-label"></span><textarea placeholder="Origem *" ng-model = "raca.origem" ng-required = "true"></textarea></label>
+      <div class="spacer" style="width: 300px; height: 21px;"></div>
+      <label class="item item-input" id="cadastroRaA-textarea6">
+        <span class="input-label"></span><textarea placeholder="Aspecto Geral *" ng-model = "raca.aspectoGeral" ng-required = "true"></textarea></label>        
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <label class="item item-select" id="cadastroRaca-select3">
+        <span class="input-label">Raça de *</span>
+        <select ng-model = "raca.criacao" ng-required = "true">
+          <option>Caprinos</option>
+          <option>Ovinos</option>
+          <option>Ambos</option>          
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <button id="cadastroRaca-button6" class="button icon-left button-positive  button-block ion-checkmark-circled" type = "submit" ng-disabled = "cadastroRacaForm.$invalid">Salvar</button>      
+    </form>    
+    <button id="cadastroRaca-button6" class="button icon-left button-assertive  button-block ion-close-circled" ng-click="cancelar()">Cancelar</button>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,66 @@
+<ion-view title="Relatório movimentação animal" cache-view = "false">
+	<ion-content padding="true" class="has-header">
+		<div ng-show="vazio == false">
+			<div class="item item-body">
+				<div class="show-list-numbers-and-dots" align = "center">
+		        <p style="margin-top:0px;color:#000000;">Gráfico Motivo das movimentações          
+		        </p>
+		     	</div>
+		      	<div class="spacer" style="width: 300px; height: 15px;"></div>
+				<ion-list>
+	      			<ion-item>	
+	      				<canvas id = "pie" class = "chart chart-pie" chart-data="data" chart-labels="labels" chart-options="options">			
+						</canvas>
+	      			</ion-item>
+	      			
+	  	  		</ion-list>			
+	  	  	</div>
+
+	  	  	<div class="spacer" style="width: 300px; height: 22px;"></div>
+
+	  	  	<div class="item item-body" >
+		      <div  class="show-list-numbers-and-dots" align = "center">
+		        <p style="margin-top:0px;color:#000000;">Movimentações por ano          
+		        </p>
+		      </div>
+		      <div class="spacer" style="width: 300px; height: 15px;"></div>
+		      <ion-item ng-repeat = "ano in anos">
+		      	<div align="center">{{ano}}</div>
+		      	<div style="text-align:left">
+		      		<p>Venda: {{vendaAno(ano)}}</p>
+		      		<p>Morte: {{morteAno(ano)}}</p>
+		      		<p>Roubo: {{rouboAno(ano)}}</p>
+		      		<p>Alimentação: {{alimentacaoAno(ano)}}</p>
+					<p>Emprestimo: {{emprestimoAno(ano)}}</p>
+					<p>Outros: {{outrosAno(ano)}}</p>	      		
+		      	</div>
+		      </ion-item>
+		    </div>	    
+
+		    <div class="spacer" style="width: 300px; height: 22px;"></div>
+
+		    <div ng-if="anos.length > 1">
+			    <div class="item item-body">
+					<div class="show-list-numbers-and-dots" align = "center">
+			        <p style="margin-top:0px;color:#000000;">Gráfico quantidade de mortes por ano          
+			        </p>
+			     	</div>
+			      	<div class="spacer" style="width: 300px; height: 15px;"></div>
+					<ion-list>
+		      			<ion-item>	
+		      				<canvas id = "line" class = "chart chart-line" chart-data="dataMorte" chart-labels="labelsMorte" chart-options="options">			
+							</canvas>
+		      			</ion-item>
+		      			
+		  	  		</ion-list>			
+		  	  	</div>
+	  	  	</div>
+	  	  </div>
+	  	  <br/>
+	  	  <div class="alert alert-warning" ng-show="vazio == true">
+		      <strong>Aviso!</strong> Você não cadastrou as informações necessárias para a geração desse relatório.
+		   </div>
+		   <br/>
+		<button id="cadastroAnimal-button6" class="button button-assertive icon-left button-block button-block ion-android-arrow-back" ng-click="voltar()">Voltar</button>		
+	</ion-content>
+</ion-view>

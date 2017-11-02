@@ -1,0 +1,53 @@
+<ion-view title="Cadastro Rebanho" id="page19" cache-view = "false">
+  <ion-content padding="true" class="has-header">
+    <h3 id="cadastroRebanho-heading3" style="color:#000000;text-align:center;">Informações</h3>
+    <form id="cadastroRebanho" class="list" ng-submit = "cadastrar(rebanho)" name = "cadastroRebanhoForm">      
+      <label class="item item-input" id="cadastroRebanho-input19">
+        <input type="text" placeholder="Nome *" ng-model = "rebanho.nome" ng-required = "true">
+      </label>    
+       
+      <div ng-if = "usuario.permissao == 'ROLE_PECUARISTA'">
+        <div ng-if = "online == true">
+          <div class="spacer" style="width: 300px; height: 22px;"></div>
+          <label class="item item-select" id="cadastroRebanho-select6">
+            <span class="input-label">Escolha a fazenda *</span>
+            <select ng-model = "rebanho.fazenda" ng-options = "fazenda.nome for fazenda in fazendas" ng-required = "true">                    
+            </select>
+          </label>
+        </div>                       
+      </div>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <label class="item item-select" id="cadastroRebanho-select3">
+        <span class="input-label">Tipo de criação *</span>
+        <select ng-model = "rebanho.criacao" ng-required = "true">
+          <option>Caprinos</option>
+          <option>Ovinos</option>
+          <option>Ambos</option>
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <label class="item item-select" id="cadastroRebanho-select4">
+        <span class="input-label">Manejo Alimentar *</span>
+        <select ng-model = "rebanho.manejo" ng-required = "true">
+          <option>Intensivo</option>
+          <option>Extensivo</option>
+          <option>Semi-intensivo</option>          
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <label class="item item-select" id="cadastroRebanho-select5">
+        <span class="input-label">Produção *</span>
+        <select ng-model = "rebanho.producao" ng-required = "true">
+          <option>Carne</option>
+          <option>Leite</option>
+          <option>Misto</option>
+        </select>
+      </label>            
+      <br/>      
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <button id="cadastroRebanho-button6" class="button icon-left button-positive  button-block ion-checkmark-circled" type = "submit" ng-disabled = "cadastroRebanhoForm.$invalid">Salvar</button>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>    
+    </form>    
+    <button id="cadastroRebanho-button6" class="button icon-left button-assertive  button-block ion-close-circled" ng-click="cancelar()">Cancelar</button>
+  </ion-content>
+</ion-view>

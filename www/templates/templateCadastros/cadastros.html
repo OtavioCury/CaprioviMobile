@@ -1,0 +1,12 @@
+<ion-view title="Cadastros" id="page8">
+  <ion-content padding="true" class="has-header">
+    <ion-list id="cadastros-list4">      
+      <ion-item id="cadastros-list-item12" ng-click = "fazendas()" ng-if="usuario.permissao == 'ROLE_PECUARISTA'">Fazendas</ion-item>     
+      <ion-item id="cadastros-list-item13" ng-click = "rebanhos()">Rebanhos</ion-item>
+      <ion-item id="cadastros-list-item14" ng-click = "animais()">Animais</ion-item>
+      <ion-item id="cadastros-list-item15" ng-click = "doencas()">Doenças</ion-item>      
+      <ion-item id="cadastros-list-item82" ng-click ="racas()">Raças</ion-item>
+      <ion-item id="cadastros-list-item83" ng-click ="medicamentos()">Medicamentos</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

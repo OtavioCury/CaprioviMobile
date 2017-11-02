@@ -1,0 +1,32 @@
+<ion-view title="Cadastro Ocorrência" id="page22" cache-view = "false">
+  <ion-content padding="true" class="has-header">
+    <h3 id="cadastroOcorrNcia-heading6" style="color:#000000;text-align:center;">Informações</h3>
+    <form id="cadastroOcorrNcia-form9" class="list" ng-submit = "cadastrar(ocorrencia)" name = "cadastroOcorrenciaForm">
+      <label class="item item-input" id="cadastroOcorrNcia-input11">
+        <span class="input-label">Data da ocorrência *</span>
+        <input type="date" ng-required = "true" ng-model = "ocorrencia.data">
+      </label>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <div ng-if="online == true">
+        <label class="item item-select" id="cadastroOcorrNcia-select12">
+          <span class="input-label">Animal *</span>
+          <select ng-required = "true" ng-options = "animal.nomeNumero for animal in animais" ng-model = "ocorrencia.animal">          
+          </select>
+        </label>
+        <div class="spacer" style="width: 300px; height: 22px;"></div>
+        <label class="item item-select" id="cadastroOcorrNcia-select13">
+          <span class="input-label">Doença *</span>
+          <select ng-required = "true" ng-options = "doenca.nome for doenca in doencas" ng-model = "ocorrencia.doenca">         
+          </select>
+        </label>
+        <div class="spacer" style="width: 300px; height: 22px;"></div>
+      </div>
+      <label class="item item-input" id="cadastroOcorrNcia-textarea1">
+        <span class="input-label"></span><textarea placeholder="Observações" ng-model = "ocorrencia.observacao"></textarea></label>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <button id="cadastroOcorrencia-button5" class="button button-positive icon-left button-block button-block ion-checkmark-circled" type = "submit" ng-disabled = "cadastroOcorrenciaForm.$invalid">Salvar</button>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+    </form>    
+    <button id="cadastroOcorrencia-button6" class="button button-assertive icon-left button-block button-block ion-close-circled" ng-click="cancelar()">Cancelar</button>
+  </ion-content>
+</ion-view>

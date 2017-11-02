@@ -1,0 +1,75 @@
+<ion-view title="Cadastro animal" id="page18" cache-view = "false">
+  <ion-content padding="true" class="has-header">
+    <form id="cadastroAnimal-form4" class="list" ng-submit = "cadastrar(animal)" name = "cadastroAnimalForm">
+      <h3 id="cadastroAnimal-heading2" style="color:#000000;text-align:center;">Informações</h3>
+      <label class="item item-input" id="cadastroAnimal-input13">
+        <input type="text" placeholder="Nome/Número *" ng-required = "true" ng-model = "animal.nomeNumero">
+      </label>
+      <div ng-if = "usuario.permissao == 'ROLE_PECUARISTA'">
+        <div ng-if = "online == true">
+          <div class="spacer" style="width: 300px; height: 18px;"></div>
+          <label class="item item-select" id="cadastroAnimal-select1">
+            <span class="input-label">Rebanho *</span>
+            <select ng-model = "animal.rebanho" ng-options = "rebanho.nome for rebanho in rebanhos" ng-required = "true">
+            </select>      
+          </label>
+        </div>
+      </div>
+      <div class="spacer" style="width: 300px; height: 19px;"></div>
+      <label class="item item-input" id="cadastroAnimal-input17">
+        <span class="input-label">Data de nascimento</span>
+        <input type="date" placeholder="Data de nascimento *" ng-required = "true" ng-model = "animal.nascimento">
+      </label>
+      <div class="spacer" style="width: 300px; height: 19px;"></div>
+      <label class="item item-select" id="cadastroAnimal-input15">
+        <span class="input-label">Sexo *</span>
+        <select ng-required = "true" ng-model = "animal.sexo">
+          <option>Macho</option>
+          <option>Fêmea</option>
+        </select>
+      </label>
+       <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <label class="item item-select">
+        <span class="input-label">Finalidade *</span>
+        <select ng-required = "true" ng-model = "animal.animalFinalidade">
+          <option>Reprodução</option>
+          <option>Produção</option>
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <label class="item item-select">
+        <span class="input-label">Motivo de entrada *</span>
+        <select ng-required = "true" ng-model = "animal.motivoEntrada">
+          <option>Compra</option>
+          <option>Nascimento</option>
+          <option>Emprestimo</option>
+          <option>Outros</option>
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <label class="item item-select" id="cadastroAnimal-input17">
+        <span class="input-label">Tipo de parto</span>
+        <select ng-model = "animal.parto">
+          <option>Simples</option>
+          <option>Duplo</option>
+          <option>Triplo</option>
+          <option>Quádruplo</option>
+        </select>
+      </label>
+      <div ng-if = "usuario.permissao == 'ROLE_PECUARISTA'">
+        <div ng-if = "online == true">
+          <div class="spacer" style="width: 300px; height: 19px;"></div>
+          <label class="item item-select" id="cadastroAnimal-select2">
+            <span class="input-label">Raça</span>
+             <select ng-model = "animal.raca" ng-options = "raca.nome for raca in racas">
+            </select>
+          </label>
+        </div>
+      </div>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <button id="cadastroAnimal-button5" class="button button-positive icon-left button-block button-block ion-checkmark-circled" type = "submit" ng-disabled = "cadastroAnimalForm.$invalid">Salvar</button>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+    </form>    
+    <button id="cadastroAnimal-button6" class="button button-assertive icon-left button-block button-block ion-close-circled" ng-click="cancelar()">Cancelar</button>
+  </ion-content>
+</ion-view>

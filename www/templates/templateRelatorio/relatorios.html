@@ -1,0 +1,59 @@
+<ion-view title="Relatórios" id="page10">
+  <ion-content padding="true" class="has-header">
+
+    <div class="panel panel-default">
+      <div class="panel-heading" 
+        style="background: #f2f2f2; color: #000000; border-color: #f2f2f2">
+          <h3 class="panel-title" style="font-weight: bold;">Relatórios de produção</h3></div>
+      <div class="panel-body">
+        <div class="spacer" style="width: 300px; height: 15px;"></div>
+        <ion-list>
+          <ion-item ng-click = "relatorioAnimaisPorEntrada()">Animais por entrada</ion-item>
+          <ion-item ng-click = "relatorioMovimentacaoAnimal()">Movimentação Animal</ion-item>
+          <ion-item ng-click = "relatorioNumeroCrias()">Número de crias</ion-item>
+          <ion-item ng-click = "relatorioOcorrenciasClinicas()">Ocorrências Clínicas</ion-item>
+          <ion-item ng-click = "relatorioControleParasitario()">Controles Parasitários</ion-item>
+          <ion-item ng-click = "relatorioVermifugacao()">Vermifugação</ion-item>        
+        </ion-list>
+      </div>
+    </div>
+
+    </div>
+
+    <div class="spacer" style="width: 300px; height: 22px;"></div>
+
+    <div class="panel panel-default" >
+      <div class="panel-heading" 
+        style="background: #f2f2f2; color: #000000; border-color: #f2f2f2">
+         <h3 class="panel-title" style="font-weight: bold;">Relatórios de reprodução          
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="spacer" style="width: 300px; height: 15px;"></div>
+        <ion-list>
+          <ion-item ng-click = "relatorioPartos()">Partos</ion-item>
+        	<ion-item ng-click = "relatorioPrevisaoPartos()">Previsão de partos</ion-item>
+        	<ion-item ng-click = "relatorioCoberturaReprodutor()">Cobertura por reprodutor</ion-item>
+          <ion-item ng-click = "relatorioFemeasIdadeReprodutiva()">Fêmeas em idade reprodutiva</ion-item>        
+    	  </ion-list>
+      </div>
+    </div>
+
+    <div class="spacer" style="width: 300px; height: 22px;"></div>
+
+    <div class="panel panel-default">
+      <div class="panel-heading" 
+        style="background: #f2f2f2; color: #000000; border-color: #f2f2f2">
+        <h3 class="panel-title" style="font-weight: bold;">Relatórios de genéticos          
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="spacer" style="width: 300px; height: 15px;"></div>
+        <ion-list>
+          <ion-item ng-click = "relatorioIntervaloGeracao()">Intervalo de geração</ion-item>
+        	<ion-item ng-click = "relatorioTamanhoEfetivo()">Tamanho efetivo da população</ion-item>
+        	<ion-item ng-click = "relatorioGanhoGeneticoEsperado()">Ganho genético esperado</ion-item>
+    	  </ion-list>
+      </div>
+    </div>
+</ion-view>

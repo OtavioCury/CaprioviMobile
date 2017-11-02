@@ -1,0 +1,40 @@
+<ion-view title="Relatório controles parasitários" cache-view = "false">
+	<ion-content padding="true" class="has-header">
+		<div ng-show="vazio == false">
+			<div class="item item-body">
+				<div class="show-list-numbers-and-dots" align = "center">
+		        <p style="margin-top:0px;color:#000000;">Gráfico Controles por ano          
+		        </p>
+		     	</div>
+		      	<div class="spacer" style="width: 300px; height: 15px;"></div>
+				<ion-list>
+	      			<ion-item>	
+	      				<canvas id = "pie" class = "chart chart-pie" chart-data="data" chart-labels="labels" chart-options="options">			
+						</canvas>
+	      			</ion-item>
+	      			
+	  	  		</ion-list>
+
+	  	  		<div class="spacer" style="width: 300px; height: 22px;"></div>
+
+	  	  		<div align="center">
+	  	  			<h3>Lista de animais/medicamentos</h3>
+	  	  		</div>
+	  	  		<br/>
+	  	  		<ion-list id="controles-list10">
+	      
+			         <ion-item ng-repeat = "controle in relControleParasitario" style = "text-align:left;">
+			            <h2>Animal: {{controle.animal.nomeNumero}}</h2>                  
+			            <h2>Medicamento: {{controle.medicamento.nome}}</h2>		            
+			        </ion-item>
+	      		</ion-list>
+	  	  	</div>
+	  	 </div>
+		<br/>
+		<div class="alert alert-warning" ng-show="vazio == true">
+	      <strong>Aviso!</strong> Você não cadastrou as informações necessárias para a geração desse relatório.
+	    </div>
+	    <br/>  	  	
+		<button id="cadastroAnimal-button6" class="button button-assertive icon-left button-block button-block ion-android-arrow-back" ng-click="voltar()">Voltar</button>		
+	</ion-content>
+</ion-view>

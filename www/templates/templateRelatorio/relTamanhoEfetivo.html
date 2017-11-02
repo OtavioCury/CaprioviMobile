@@ -1,0 +1,27 @@
+<ion-view title="Relatório tamanho efetivo da população" cache-view = "false">
+	<ion-content padding="true" class="has-header">
+		<div ng-show="vazio == false">
+			<div class="item item-body">
+				<div class="show-list-numbers-and-dots" align = "center">
+			        <p style="margin-top:0px;color:#000000;">Tamanho efetivo - rebanhos
+			        </p>
+		     	</div>
+		      	<div class="spacer" style="width: 300px; height: 15px;"></div>
+				<ion-list>
+	      			<ion-item ng-repeat="rebanho in relTamanhoEfetivo">	
+	      				<h2>Nome: {{rebanho.nome}}</h2>
+	      				<h2>Tamanho efetivo da população: {{rebanho.tamanhoEfetivo}}</h2>      				
+	      			</ion-item>
+	      			
+	  	  		</ion-list>			
+	  	  	</div>	    
+		</div>
+		<br/>
+		<div class="alert alert-warning" ng-show="vazio == true">
+	      <strong>Aviso!</strong> Você não cadastrou as informações necessárias para a geração desse relatório.
+	    </div>
+	    <br/>  
+
+		<button id="cadastroAnimal-button6" class="button button-assertive icon-left button-block button-block ion-android-arrow-back" ng-click="voltar()">Voltar</button>		
+	</ion-content>
+</ion-view>

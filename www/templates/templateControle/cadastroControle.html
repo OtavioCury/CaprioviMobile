@@ -1,0 +1,30 @@
+<ion-view title="Cadastro Controle" id="page17" cache-view = "false">
+  <ion-content padding="true" class="has-header">
+    <h3 id="cadastroControle-heading7" style="color:#000000;text-align:center;">Informações</h3>
+    <form id="cadastroControle-form10" class="list" ng-submit = "cadastrar(controle)" name = "cadastroControleForm">
+      <label class="item item-input" id="cadastroControle-input12">
+        <span class="input-label">Data da vermifugação *</span>
+        <input type="date" ng-required = "true" ng-model = "controle.dataVernifugacao">
+      </label>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+      <div ng-if="online == true">
+        <label class="item item-select" id="cadastroControle-select14">
+          <span class="input-label">Animal *</span>
+          <select ng-required = "true" ng-options = "animal.nomeNumero for animal in animais" ng-model = "controle.animal">         
+          </select>
+        </label>
+        <div class="spacer" style="width: 300px; height: 18px;"></div>
+      
+        <label class="item item-select" id="cadastroControle-select15">
+          <span class="input-label">Medicamento *</span>
+          <select ng-required = "true" ng-options = "medicamento.nome for medicamento in medicamentos" ng-model = "controle.medicamento">          
+          </select>
+        </label>
+        <div class="spacer" style="width: 300px; height: 18px;"></div>
+      </div>
+      <button id="cadastroControle-button5" class="button button-positive icon-left button-block button-block ion-checkmark-circled" type = "submit" ng-disabled = "cadastroControleForm.$invalid">Salvar</button>
+      <div class="spacer" style="width: 300px; height: 10px;"></div>
+    </form>    
+     <button id="cadastroControle-button6" class="button button-assertive icon-left button-block button-block ion-close-circled" ng-click="cancelar()">Cancelar</button>
+  </ion-content>
+</ion-view>

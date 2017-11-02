@@ -1,0 +1,11 @@
+{
+  "name": "Capriovi",
+  "app_id": "bcc9d063",
+  "type": "ionic1",
+  "watchPatterns": [
+    "scss/**/*"
+  ],
+  "integrations": {
+    "cordova": {}
+  }
+}

@@ -1,0 +1,52 @@
+<ion-view title="Gerar relatório" cache-view = "false">
+	<ion-content padding="true" class="has-header">
+    <h4 id="rebanhoRelatorio-heading7" style="color:#000000;text-align:center;">Escoha o rebanho a ser analisado</h4>
+    <form id="rebanhoRelatorio-form10" class="list" ng-submit = "gerarRelatorio(ganhoGenetico)" name = "rebanhoRelatorioForm">
+      <label class="item item-select" id="cadastroRebanho-select6">
+        <span class="input-label">Rebanhos</span>
+        <select ng-model = "ganhoGenetico.rebanho" ng-options = "rebanho.nome for rebanho in rebanhos" ng-required = "true">                    
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <label class="item item-select" id="cadastroRebanho-select3">
+        <span class="input-label">Proporção de machos</span>
+        <select ng-model = "ganhoGenetico.propMachos" ng-required = "true">
+          <option>5%</option>
+          <option>10%</option>
+          <option>15%</option>
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <label class="item item-select" id="cadastroRebanho-select3">
+        <span class="input-label">Proporção de fêmeas</span>
+        <select ng-model = "ganhoGenetico.propFemeas" ng-required = "true">
+          <option>30%</option>
+          <option>40%</option>
+          <option>50%</option>
+          <option>60%</option>
+          <option>70%</option>
+          <option>80%</option>
+        </select>
+      </label>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <label class="item item-input">
+        <input type="number" name="myDecimal" placeholder="Herdabilidade" ng-model="ganhoGenetico.herdabilidade" ng-pattern="/([0-9]).([0-9])/" step="0.01" required />
+      </label>
+      <div class="spacer" style="width: 300px; height: 22px;"></div>
+      <div ng-show="rebanhoRelatorioForm.myDecimal.$valid == false && rebanhoRelatorioForm.myDecimal.$dirty" class = "alert alert-danger">
+        Herdabilidade inválida. (Ex de valores válidos: 0.5)
+      </div>
+      <label class="item item-select">
+        <span class="input-label">Ajuste do peso</span>
+        <select ng-model = "ganhoGenetico.ajuste" ng-required = "true">
+          <option>60 dias</option>
+          <option>120 dias</option>
+          <option>180 dias</option>
+        </select>
+      </label>     
+      <button id="rebanhoRelatorio-button5" class="button button-positive icon-left button-block button-block ion-checkmark-circled" type = "submit" ng-disabled = "rebanhoRelatorioForm.$invalid || rebanhoRelatorioForm.herd.$valid == false">Gerar relatório</button>    
+    </form>    
+     <button id="rebanhoRelatorio-button6" class="button button-assertive icon-left button-block button-block ion-close-circled" ng-click="cancelar()">Cancelar</button>
+     <!--{{ganho}} -->
+  </ion-content>
+</ion-view>

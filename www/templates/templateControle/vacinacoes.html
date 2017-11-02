@@ -1,0 +1,58 @@
+<ion-view title="Vacinações" id="page16" cache-view = "false">
+   <ion-nav-buttons side="right" class="has-header">
+    <button ng-click="adicionar()" class="button button-positive icon-left ion-android-add-circle">Adicionar</button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Procurar vacinações" ng-model="vacinacoesProcura">
+      </label>
+    </div>
+
+    <div class="alert alert-warning" ng-show="online == false && vazio == true">
+      <strong>Aviso!</strong> Você não possui nenhuma vacinação cadastrada localmente.
+    </div>
+    <div class="alert alert-warning" ng-show="online == true && vazio == false">
+      <strong>Você possui conexão com a internet!</strong> Sincronize as vacinações cadastradas localmente com o servidor.
+    </div>
+    <div class="alert alert-success" ng-show="sincronismoSucesso == true">
+      <strong>Operação realizada!</strong> Vacinação sincronizada com sucesso.
+    </div>
+   <ion-refresher pulling-text="Puxe para atualizar" on-refresh="atualizarList()"></ion-refresher>
+    <ion-list id="controles-list10">
+      <div ng-if="online == true">
+         <ion-item ng-repeat = "vacinacao in vacinacoes | filter:vacinacoesProcura" style = "text-align:left;">          
+            <h2>Medicamento usado: {{vacinacao.medicamento.nome}}</h2>
+            <h2>Data: {{vacinacao.data}}</h2>
+            <ion-option-button class="button-assertive icon-left ion-trash-a"
+                         ng-click="deletar(vacinacao)">
+              Deletar
+            </ion-option-button>
+            <ion-option-button class="button-positive icon-left ion-edit"
+                         ng-click="atualizar(vacinacao)">
+            Atualizar
+            </ion-option-button>
+        </ion-item>
+      </div>
+      <ion-item class = "item-icon-right" ng-repeat = "vacinacaoLocal in vacinacoesLocal | filter:vacinacoesProcura" style = "text-align:left;">
+          
+          <h2>Data: {{vacinacaoLocal.data | date: 'dd-MM-yyyy'}}</h2>
+          <ion-option-button class="button-calm icon-left ion-upload"
+                       ng-click="atualizarServidor(vacinacaoLocal)">   
+              Sincronizar       
+          </ion-option-button> 
+          <ion-option-button class="button-assertive icon-left ion-trash-a"
+                       ng-click="deletarLocal(vacinacaoLocal)">
+            Deletar
+          </ion-option-button>
+          <ion-option-button class="button-positive icon-left ion-edit"
+                       ng-click="atualizar(vacinacaoLocal)">
+          Atualizar
+          </ion-option-button>
+          <i class="icon ion-upload" style="float:right; margin-top:0"></i>  
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

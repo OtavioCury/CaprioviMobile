@@ -1,0 +1,54 @@
+<ion-view title="Rebanhos" id="page11" cache-view = "false">
+  <ion-nav-buttons side="right" class="has-header">
+    <button ng-click="adicionar()" class="button button-positive icon-left ion-android-add-circle">Adicionar</button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <div class="list list-inset">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Procurar rebanho" ng-model="rebanhoProcura">
+      </label>
+    </div>
+    <div class="alert alert-warning" ng-show="online == false && vazio == true">
+      <strong>Aviso!</strong> Você não possui nenhum rebanho cadastrado localmente.
+    </div>
+    <div class="alert alert-warning" ng-show="online == true && vazio == false">
+      <strong>Você possui conexão com a internet!</strong> Sincronize os rebanhos cadastrados localmente com o servidor.
+    </div>
+    <div class="alert alert-success" ng-show="sincronismoSucesso == true">
+      <strong>Operação realizada!</strong> Rebanho sincronizado com sucesso.
+    </div>
+    <ion-refresher pulling-text="Puxe para atualizar" on-refresh="atualizarList()"></ion-refresher>
+    <ion-list id="rebanhos-list8">
+      <div ng-if="online == true">
+        <ion-item ng-repeat = "rebanho in rebanhos|filter:rebanhoProcura" style = "text-align:left;">
+            <h2>{{rebanho.nome}}</h2>
+            <ion-option-button class="button-assertive icon-left ion-trash-a"
+                         ng-click="deletar(rebanho)">
+              Deletar
+            </ion-option-button>
+            <ion-option-button class="button-positive icon-left ion-edit"
+                         ng-click="atualizar(rebanho)">
+            Atualizar
+            </ion-option-button>
+        </ion-item>
+      </div>
+      <ion-item class = "item-icon-right" ng-repeat = "rebanhoLocal in rebanhosLocais|filter:rebanhoProcura" style = "text-align:left;">                  
+          <h2>{{rebanhoLocal.nome}}</h2>
+          <ion-option-button class="button-calm icon-left ion-upload"
+                       ng-click="atualizarServidor(rebanhoLocal)">   
+            Sincronizar       
+          </ion-option-button>          
+          <ion-option-button class="button-assertive icon-left ion-trash-a"
+                       ng-click="deletarLocal(rebanhoLocal)">
+            Deletar
+          </ion-option-button>
+          <ion-option-button class="button-positive icon-left ion-edit"
+                       ng-click="atualizar(rebanhoLocal)">
+          Atualizar
+          </ion-option-button>
+          <i class="icon ion-upload" style="float:right; margin-top:0"></i>         
+      </ion-item>     
+    </ion-list>
+  </ion-content>
+</ion-view>

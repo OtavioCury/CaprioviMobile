@@ -1,0 +1,24 @@
+<ion-view title="Relatório ganho genético esperado" cache-view = "false">
+	<ion-content padding="true" class="has-header">		
+		<div class="item item-body">
+			<div  class="show-list-numbers-and-dots" align = "center">
+		        <p style="margin-top:0px;color:#000000;">Ganho genético esperado e diferencial de seleção para pesos ajustados do rebanho: {{relGanhoGenetico.Rebanho}} 	
+		        </p>
+	      	</div>
+	      	Nome do rebanho: {{relGanhoGenetico.Rebanho}} <br/><br/>
+	      	Total de animais vivos: {{relGanhoGenetico.totalAniVivosReb}} <br/><br/>
+	      	Total de animais aptos: {{relGanhoGenetico.totalAnimaisAptos}} <br/><br/>
+	      	Total de machos selecionados: {{relGanhoGenetico.MachosSel}} <br/><br/>
+	      	Total de fêmeas selecionados: {{relGanhoGenetico.FemeasSel}} <br/><br/>
+	      	Intensidade de seleção média: ({{relGanhoGenetico.intensidadeMacho}} + {{relGanhoGenetico.intensidadeFemea}})/2 <br/><br/>
+	      	Desvio padrão fenotípico da característica:  {{relGanhoGenetico.DesvioPadraoCarac}} <br/><br/>
+	      	Diferencial de seleção: {{relGanhoGenetico.diferencialSel}} <br/><br/>
+	      	Ganho genético esperado: {{relGanhoGenetico.ganhoGenEsp}}
+      		<div class="spacer" style="width: 300px; height: 15px;"></div>			
+  	  	</div>	    
+
+	    <div class="spacer" style="width: 300px; height: 22px;"></div>	    
+
+		<button id="cadastroAnimal-button6" class="button button-assertive icon-left button-block button-block ion-android-arrow-back" ng-click="voltar()">Voltar</button>		
+	</ion-content>
+</ion-view>

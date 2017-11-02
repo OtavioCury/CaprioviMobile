@@ -1,0 +1,25 @@
+<ion-view title="Gerar relatório" cache-view = "false">
+	<ion-content padding="true" class="has-header">
+    <div ng-if="umRebanho == false">
+      <h4 id="rebanhoRelatorio-heading7" style="color:#000000;text-align:center;">Escoha os rebanhos a serem analisados</h4>
+      <form id="rebanhoRelatorio-form10" class="list" ng-submit = "relatorios()" name = "rebanhoRelatorioForm">
+        <label class="item item-select" id="rebanhoRelatorio-select14">        
+          <ion-checkbox ng-repeat = "rebanho in rebanhos" ng-model="rebanhosEscolhidos" ng-change="rebanhosSel(rebanho)">{{rebanho.nome}}</ion-checkbox>          
+        </label>                 
+        <button id="rebanhoRelatorio-button5" class="button button-positive icon-left button-block button-block ion-checkmark-circled" type = "submit" ng-disabled = "rebanhoRelatorioForm.$invalid">Gerar relatório</button>      
+      </form>    
+     </div>
+     <div ng-if="umRebanho == true">
+      <h4 id="rebanhoRelatorio-heading7" style="color:#000000;text-align:center;">Escoha o rebanho a ser analisado</h4>
+      <form id="rebanhoRelatorio-form10" class="list" ng-submit = "relatorios()" name = "rebanhoRelatorioForm">
+         <label class="item item-select" id="cadastroRebanho-select6">
+          <span class="input-label">Rebanhos</span>
+          <select ng-model = "intervaloGeracao.rebanho" ng-options = "rebanho.nome for rebanho in rebanhos" ng-required = "true">                    
+          </select>
+        </label>                
+        <button id="rebanhoRelatorio-button5" class="button button-positive icon-left button-block button-block ion-checkmark-circled" type = "submit" ng-disabled = "rebanhoRelatorioForm.$invalid">Gerar relatório</button>      
+      </form>          
+     </div>
+     <button id="rebanhoRelatorio-button6" class="button button-assertive icon-left button-block button-block ion-close-circled" ng-click="cancelar()">Cancelar</button>
+  </ion-content>
+</ion-view>

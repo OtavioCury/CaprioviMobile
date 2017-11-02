@@ -1,0 +1,48 @@
+<ion-view title="Relatório de partos" cache-view = "false">
+	<ion-content padding="true" class="has-header">
+    <div ng-show="vazio == false">		
+  		<div class="item item-body">
+  			<div class="show-list-numbers-and-dots" align = "center">
+  	        <p style="margin-top:0px;color:#000000;">Partos
+  	        </p>
+  	     	</div>
+  	      	<div class="spacer" style="width: 300px; height: 15px;"></div>
+  			<ion-list>
+        			<ion-item ng-repeat="animal in relPartos">      				
+        				<h2>Nome/Número: {{animal.animal.nomeNumero}}</h2>
+        				<div ng-if="animal.intervaloPartos != null">
+  						<h2>Intervalo de partos: {{animal.intervaloPartos}}</h2>      					
+        				</div>
+        				<div ng-if="animal.idadePrimeiroParto != null">
+        					<h2>Idade ao primeiro parto: {{animal.idadePrimeiroParto}}</h2>
+        				</div>
+        				<div ng-if="animal.mediaCioPosParto != null">
+        					<h2>Média cio pós parto: {{animal.mediaCioPosParto}}</h2>
+        				</div>
+        				<div ng-if="animal.partoSimples != null">
+       					<h2>Partos simples: {{animal.partoSimples}}</h2>
+       				</div>
+       				<div ng-if="animal.partoDuplo != null">
+        					<h2>Partos duplos: {{animal.partoDuplo}}</h2>
+        				</div>
+        				<div ng-if="animal.partoTriplo != null">
+        					<h2>Partos triplos: {{animal.partoTriplo}}</h2>
+        				</div>
+        				<div ng-if="animal.partoQuadr != null">
+        					<h2>Partos quádruplos: {{animal.partoQuadr}}</h2>
+        				</div>
+        			</ion-item>
+        			
+    	  		</ion-list>			
+    	  	</div>	    
+
+      </div>
+      <br/>
+      <div class="alert alert-warning" ng-show="vazio == true">
+          <strong>Aviso!</strong> Você não cadastrou as informações necessárias para a geração desse relatório.
+        </div>
+        <br/>   
+
+		<button id="cadastroAnimal-button6" class="button button-assertive icon-left button-block button-block ion-android-arrow-back" ng-click="voltar()">Voltar</button>		
+	</ion-content>
+</ion-view>

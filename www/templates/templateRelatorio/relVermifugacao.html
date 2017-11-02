@@ -1,0 +1,51 @@
+<ion-view title="Relatório Vermifugação" cache-view = "false">
+	<ion-content padding="true" class="has-header">
+    <div ng-show="vazio == false">
+  		<div class="item item-body">
+  			<div class="show-list-numbers-and-dots" align = "center">
+  	        <p style="margin-top:0px;color:#000000;">Relatório de vermifugação
+  	        </p>
+  	     	</div>
+  	      	<div class="spacer" style="width: 300px; height: 15px;"></div>
+  			<ion-list>
+        			<ion-item ng-repeat="animal in relVermifugacao">	
+        				<h2>Nome: {{animal.nomeNumero}}</h2>
+        				<h2>Rebanho: {{animal.rebanho.nome}}</h2>
+        				<div ng-if="animal.listaNotas[animal.listaNotas.length - 1].statusVermifuga == 'DESNECESSARIO'">
+        					<h2>Situação: vermifugação desnecessária</h2>
+        				</div>
+        				<div ng-if="animal.listaNotas[animal.listaNotas.length - 1].statusVermifuga == 'ALERTA'">
+        					<h2>Situação: alerta</h2>
+        				</div>
+        				<div ng-if="animal.listaNotas[animal.listaNotas.length - 1].statusVermifuga == 'NECESSARIO'">
+        					<h2>Situação: vermifugação necessária</h2>
+        				</div>
+        				<div ng-if="animal.listaNotas[animal.listaNotas.length - 1].statusVermifuga == 'ATENCAO'">
+        					<h2>Situação: atenção</h2>
+        				</div>
+        				<div ng-if="animal.listaNotas[animal.listaNotas.length - 1].statusVermifuga == 'RISCO'">
+        					<h2>Situação: risco</h2>
+        				</div>
+        			</ion-item>
+        			
+    	  		</ion-list>			
+    	  	</div>	    
+
+  	    <div class="spacer" style="width: 300px; height: 22px;"></div>	
+
+  	    <ion-list>
+        		<ion-item>	
+        			<canvas id = "pie" class = "chart chart-pie" chart-data="data" chart-labels="labels" chart-options="options">
+  				</canvas>
+        		</ion-item>
+    	  	</ion-list>
+      </div>
+      <br/>
+      <div class="alert alert-warning" ng-show="vazio == true">
+          <strong>Aviso!</strong> Você não cadastrou as informações necessárias para a geração desse relatório.
+        </div>
+        <br/>  
+
+		<button id="cadastroAnimal-button6" class="button button-assertive icon-left button-block button-block ion-android-arrow-back" ng-click="voltar()">Voltar</button>		
+	</ion-content>
+</ion-view>
